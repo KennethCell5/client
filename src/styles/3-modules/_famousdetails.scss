@@ -3,14 +3,44 @@
   @include padding(0px 20px);
 
   &__header {
+    @include display(flex);
     @include width(100%);
     @include height(60px);
     line-height: 70px;
   }
 
   &__back {
+    @include flex(1);
     @include width(fit-content);
     cursor: pointer;
+  }
+
+  &__btn-group {
+    @include flex(1);
+    text-align: right;
+  }
+
+  &__btn {
+    @include display(inline-block);
+    @include border-radius(2px);
+    @include width(fit-content);
+    @include height(fit-content);
+    @include padding(5px 10px);
+    @include margin(0px 0px 0px 5px);
+    @include border(1px solid #cccccc);
+    line-height: normal;
+    background-color: #fff;
+    cursor: pointer;
+
+    &--action {
+      @include border(1px solid #5e81b9);
+      background-image: linear-gradient(120deg, #5e81b9 0%, #3588af 100%);
+      color: #ffffff;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
   }
 
   &__content-item {
@@ -25,5 +55,22 @@
     @include display(inline-block);
     @include margin(0px 10px 5px 0px);
     @include font-weight(600);
+  }
+
+  &__content-input,
+  &__content-textarea {
+    @include width(100%);
+    @include margin(0px 5px 5px 0px);
+    @include padding(2px 5px);
+    @include border(none);
+    @include border(1px solid #cccccc);
+    @include border-radius(2px);
+    @include font-size(16px);
+  }
+
+  &__content-textarea {
+    @include width(100%);
+    @include height(150px);
+    @include padding(0px 5px);
   }
 }

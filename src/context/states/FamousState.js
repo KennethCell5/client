@@ -7,6 +7,7 @@ const initialState = {
   currentStep: 1,
   currentFamousId: null,
   searchValue: '',
+  editStatus: false,
   famousList: []
 };
 
