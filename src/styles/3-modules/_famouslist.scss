@@ -1,10 +1,11 @@
 .famous-list {
   @include width(100%);
+  @include height(90%);
   @include padding(0px 20px);
 
   &__header {
     @include width(100%);
-    @include height(80px);
+    @include height(60px);
     line-height: 70px;
   }
 
@@ -32,6 +33,7 @@
   &__list {
     @include width(100%);
     @include height(calc(100% - 50px));
+    @include overflow-y(auto);
   }
 
   &__list-item {
