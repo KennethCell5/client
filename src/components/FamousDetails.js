@@ -47,6 +47,7 @@ export default function FamousDetails(props) {
             type: 'CHANGE_EDITING_STATUS',
             data: false
           });
+          formik.resetForm();
         })
         .catch(error => alert('An Error Occured!'));
     }
