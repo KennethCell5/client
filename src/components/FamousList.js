@@ -13,11 +13,27 @@ export default function FamousList(props) {
 
     if (value !== '') {
       field.forEach(element => {
+        // TEMP ARRAY FOR ELEMENTS TO SORT
+        let arraytoSort = [];
+
+        // PUSH FILTERED ELEMENT TO TEMP ARRAY
         array.map(person => {
           if (person[element].toLowerCase().indexOf(value.toLowerCase()) !== -1)
-            if (!filteredArray.includes(person)) filteredArray.push(person);
+            if (!arraytoSort.includes(person)) arraytoSort.push(person);
         });
+
+        // SORT TEMP ARRAY
+        arraytoSort.sort((a, b) => (a[element] > b[element] ? 1 : -1));
+
+        // PUSH SORTED ARRAY TO FILTERED ARRAY
+        arraytoSort.map(item => {
+          if (!filteredArray.includes(item)) filteredArray.push(item);
+        });
+
+        // CLEAR TEMP ARRAY
+        arraytoSort = [];
       });
+
       return filteredArray;
     } else {
       return array;
