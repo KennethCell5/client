@@ -1,0 +1,18 @@
+.famous {
+  @include width(100vw);
+  @include height(100vh);
+  @include padding(80px 0px);
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: cover;
+
+  &__wrapper {
+    @include width(400px);
+    @include height(500px);
+    @include margin(auto);
+    @include border-radius(5px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    background-color: #fff;
+  }
+}

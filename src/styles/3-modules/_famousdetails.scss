@@ -1,0 +1,29 @@
+.famous-details {
+  @include width(100%);
+  @include padding(0px 20px);
+
+  &__header {
+    @include width(100%);
+    @include height(80px);
+    line-height: 70px;
+  }
+
+  &__back {
+    @include width(fit-content);
+    cursor: pointer;
+  }
+
+  &__content-item {
+    @include margin(0px 0px 10px 0px);
+
+    & p {
+      line-height: 18px;
+    }
+  }
+
+  &__content-label {
+    @include display(inline-block);
+    @include margin(0px 10px 5px 0px);
+    @include font-weight(600);
+  }
+}

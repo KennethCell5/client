@@ -1,0 +1,59 @@
+.famous-list {
+  @include width(100%);
+  @include padding(0px 20px);
+
+  &__header {
+    @include width(100%);
+    @include height(80px);
+    line-height: 70px;
+  }
+
+  &__search {
+    @include position(relative);
+    @include width(100%);
+    color: #777777;
+  }
+
+  &__search-input {
+    @include width(100%);
+    @include padding(5px 10px);
+    @include border(none);
+    @include border(1px solid #cccccc);
+    @include border-radius(5px);
+    @include font-size(18px);
+  }
+
+  &__search-icon {
+    @include position(absolute);
+    @include top(0px);
+    @include right(10px);
+  }
+
+  &__list {
+    @include width(100%);
+    @include height(calc(100% - 50px));
+  }
+
+  &__list-item {
+    @include width(100%);
+    @include margin(10px auto);
+    @include padding(10px);
+    @include border(1px solid #cccccc);
+    @include border-radius(5px);
+    @include font-weight(600);
+    box-shadow: 0 3px 3px rgba($color: #aaaaaa, $alpha: 0.1),
+      0 3px 3px rgba($color: #aaaaaa, $alpha: 0.1);
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      background-image: radial-gradient(
+        circle 248px at center,
+        #16d9e3 0%,
+        #30c7ec 47%,
+        #46aef7 100%
+      );
+      color: #ffffff;
+    }
+  }
+}

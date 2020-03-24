@@ -1,0 +1,200 @@
+// Mobile First Toggle
+$mobile-first: true;
+
+// Media Query BreakPoints
+$breakpoints: (
+  mobile-small: 320px,
+  mobile: 600px,
+  tablet-portrait-up: 768px,
+  tablet-landscape-up: 920px,
+  laptop: 1024px,
+  laptop-medium: 1200px,
+  laptop-large: 1320px,
+  big-desktop: 1600px,
+  big-desktop-up: 1800px,
+  4k: 4000px
+);
+
+// Media Queries
+@mixin media-query($breakpoint) {
+  $breakpoint-width: map-get($breakpoints, $breakpoint);
+  @media screen and (max-width: $breakpoint-width) {
+    @content;
+  }
+}
+
+// Conditional Media Query
+@function fill-values-missing($value...) {
+  $args-missing-value-number: length($breakpoints) - length($value);
+  $args-last-value: nth($value, length($value));
+
+  $count: 1;
+  @while $count < $args-missing-value-number + 1 {
+    $value: append($value, $args-last-value);
+    $count: $count + 1;
+  }
+
+  @return $value;
+}
+
+@mixin conditional-media-query($property, $value...) {
+  $breakpoint-keys: map-keys($breakpoints);
+  $values: fill-values-missing($value...);
+
+  @if $mobile-first {
+    $count: length($breakpoint-keys);
+    @while $count > 0 {
+      @include media-query(nth($breakpoint-keys, $count)) {
+        #{$property}: nth($values, $count);
+      }
+
+      $count: $count - 1;
+    }
+  } @else {
+    $count: 1;
+    @while $count < length($breakpoint-keys) + 1 {
+      @include media-query(nth($breakpoint-keys, $count)) {
+        #{$property}: nth($values, $count);
+      }
+
+      $count: $count + 1;
+    }
+  }
+}
+
+// RESPONSIVE RULES
+
+// Height
+@mixin height($value...) {
+  @include conditional-media-query('height', $value...);
+}
+
+// Max Height
+@mixin max-height($value...) {
+  @include conditional-media-query('max-height', $value...);
+}
+
+// Min Height
+@mixin min-height($value...) {
+  @include conditional-media-query('min-height', $value...);
+}
+
+// Width
+@mixin width($value...) {
+  @include conditional-media-query('width', $value...);
+}
+
+// Max Width
+@mixin max-width($value...) {
+  @include conditional-media-query('max-width', $value...);
+}
+
+// Min Width
+@mixin min-width($value...) {
+  @include conditional-media-query('min-width', $value...);
+}
+
+// Margin
+@mixin margin($value...) {
+  @include conditional-media-query('margin', $value...);
+}
+
+// Padding
+@mixin padding($value...) {
+  @include conditional-media-query('padding', $value...);
+}
+
+// Flex
+@mixin flex($value...) {
+  @include conditional-media-query('flex', $value...);
+}
+
+// Flex Wrap
+@mixin flex-wrap($value...) {
+  @include conditional-media-query('flex-wrap', $value...);
+}
+
+// Flex Basis
+@mixin flex-basis($value...) {
+  @include conditional-media-query('flex-basis', $value...);
+}
+
+// Font Size
+@mixin font-size($value...) {
+  @include conditional-media-query('font-size', $value...);
+}
+
+// Font Weight
+@mixin font-weight($value...) {
+  @include conditional-media-query('font-weight', $value...);
+}
+
+// Border
+@mixin border($value...) {
+  @include conditional-media-query('border', $value...);
+}
+
+// Border Radius
+@mixin border-radius($value...) {
+  @include conditional-media-query('border-radius', $value...);
+}
+
+// Border Right
+@mixin border-right($value...) {
+  @include conditional-media-query('border-right', $value...);
+}
+
+// Border Bottom
+@mixin border-bottom($value...) {
+  @include conditional-media-query('border-bottom', $value...);
+}
+
+// Border Top
+@mixin border-top($value...) {
+  @include conditional-media-query('border-top', $value...);
+}
+
+// Overflow
+@mixin overflow($value...) {
+  @include conditional-media-query('overflow', $value...);
+}
+
+// Overflow Y
+@mixin overflow-y($value...) {
+  @include conditional-media-query('overflow-y', $value...);
+}
+
+// Overflow X
+@mixin overflow-x($value...) {
+  @include conditional-media-query('overflow-x', $value...);
+}
+
+// Display
+@mixin display($value...) {
+  @include conditional-media-query('display', $value...);
+}
+
+// Position
+@mixin position($value...) {
+  @include conditional-media-query('position', $value...);
+}
+
+// Top
+@mixin top($value...) {
+  @include conditional-media-query('top', $value...);
+}
+
+// Bottom
+@mixin bottom($value...) {
+  @include conditional-media-query('bottom', $value...);
+}
+
+// Left
+@mixin left($value...) {
+  @include conditional-media-query('left', $value...);
+}
+
+// Right
+@mixin right($value...) {
+  @include conditional-media-query('right', $value...);
+}
