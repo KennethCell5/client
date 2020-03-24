@@ -35,11 +35,10 @@ export default function FamousDetails(props) {
       biography: person.biography
     },
     onSubmit: values => {
-      // alert(JSON.stringify(values, null, 2));
-
       axios
         .post('http://localhost:5000/update-famous', values)
         .then(response => {
+          alert('Updated Successfully!');
           FamousDispatch({
             type: 'UPDATE_CURRENT_FAMOUS',
             data: response.data
@@ -146,10 +145,10 @@ export default function FamousDetails(props) {
           <p>
             {isEditing ? (
               <textarea
-                id="lastname"
-                name="lastname"
-                type="lastname"
-                placeholder="Lastname"
+                id="biography"
+                name="biography"
+                type="biography"
+                placeholder="Biography"
                 className="famous-details__content-textarea"
                 onChange={formik.handleChange}
                 value={formik.values.biography}
